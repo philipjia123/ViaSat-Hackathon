@@ -63,8 +63,7 @@ console.log('watermark: Start');
 	
 	//Click event
 	img.onclick = function(){
-		//window.open(options.link);
-		hide();
+		window.open(options.link);
 		player.pause();
 	}
 	
@@ -89,13 +88,13 @@ console.log('watermark: Start');
 	}
 	
 	//Show function
-	var show = function(){
+	var visible = function(){
 		options.opacity = 0.25;
 		div.style.opacity = options.opacity;
 	}
 	
-	//Playing hide function
-	var hide = function(){
+	//Hide during play function
+	var invisible = function(){
 		options.opacity = 0;
 		div.style.opacity = options.opacity;
 	}

@@ -1,3 +1,5 @@
+//Built on top of Video.js watermark plugin found at: https://github.com/xbgmsharp/videojs-watermark
+
 console.log('watermark: Start');
 
 (function() {
@@ -61,7 +63,8 @@ console.log('watermark: Start');
 	
 	//Click event
 	img.onclick = function(){
-		window.open(options.link);
+		//window.open(options.link);
+		hide();
 		player.pause();
 	}
 	
@@ -87,13 +90,13 @@ console.log('watermark: Start');
 	
 	//Show function
 	var show = function(){
-		options.opacity = 0;
+		options.opacity = 0.25;
 		div.style.opacity = options.opacity;
 	}
 	
-	//Hide function
+	//Playing hide function
 	var hide = function(){
-		options.opacity = 0.25;
+		options.opacity = 0;
 		div.style.opacity = options.opacity;
 	}
 	

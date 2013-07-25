@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../video-js/video-js.css" rel="stylesheet">
+  <link href="../videojs.watermark.css" rel="stylesheet">
+  <script src="../video-js/video.dev.js"></script>
+  <script>
+    videojs.options.flash.swf = "../video-js/video-js.swf"
+  </script>
+  <!-- <script src="../videojs.watermark.js"></script> -->
+  <!-- For debugging -->
+  <script src="../src/videojs.watermark.js"></script>
+  <style>
+    p {
+      background-color: #eee;
+      border: thin solid #777;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>The watermark plugin display anmn image over the video. Give it a shot:</p>
+
+<video id='video_1' class='video-js vjs-default-skin' width='1280' height='720' poster='http://videojs.com/img/poster.jpg' controls>
+ <source src="Office_Clip.mp4" type="video/mp4">
+</video>
+
+<script>
+// initialize video.js
+window.my_video_id = videojs('video_1');
+// Set value to the plugin
+window.my_video_id.watermark({
+  file: 'square.png',
+  //file: 'http://www.videojs.com/img/logo.png',
+  topLeft: [0.25, 0.25],
+  bottomRight: [0.6, 0.6],
+  xrepeat: 0,
+  opacity: 0.25,
+  });
+</script>
+
+</body>
+</html>

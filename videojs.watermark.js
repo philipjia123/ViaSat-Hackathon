@@ -7,7 +7,9 @@ console.log('watermark: Start');
         topLeft: [0, 0],
         bottomRight: [0, 0],
         xrepeat: 0,
-        opacity: 0.5
+		link: "about:blank",
+		tooltip: "None",
+        opacity: 0.25
     },
     extend = function() {
       var args, target, i, object, property;
@@ -39,7 +41,7 @@ console.log('watermark: Start');
 
     /* Grab the necessary DOM elements */
     video = this.el();
-  
+	
 	//Grab video player
 	player = window.my_video_id;
 	console.debug('player', player);
@@ -59,7 +61,7 @@ console.log('watermark: Start');
 	
 	//Click event
 	img.onclick = function(){
-		window.open("http://google.com");
+		window.open(options.link);
 		player.pause();
 	}
 	
@@ -76,6 +78,23 @@ console.log('watermark: Start');
 	//Mouse down event
 	img.onmousedown = function(){
 		div.style.opacity = options.opacity + 0.5;
+	}
+	
+	//Remove function
+	var remove = function(){
+		video.removeChild(div);
+	}
+	
+	//Show function
+	var show = function(){
+		options.opacity = 0;
+		div.style.opacity = options.opacity;
+	}
+	
+	//Hide function
+	var hide = function(){
+		options.opacity = 0.25;
+		div.style.opacity = options.opacity;
 	}
 	
     img.className = 'vjs-watermark';
